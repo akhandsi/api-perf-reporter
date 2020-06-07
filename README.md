@@ -11,7 +11,7 @@ api-perf [command] [options]
 
 api-perf runner [options]
     
-        --directory, -d   ..... directory path with a single postman collection and environment file
+        --directory, -d   ..... directory path with postman_collection.json and postman_environment.json files
         --load, -l        ..... number of iterations to run the given collection
         --report, -r      ..... generate run cli and html report
         --influx, -i      ..... influx db web url to save run results eg: http://user:password@host:8086/database
