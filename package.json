@@ -1,0 +1,57 @@
+{
+  "name": "api-perf-reporter",
+  "version": "1.0.0",
+  "description": "A CLI app to run performance testing using postman collections",
+  "author": "Akhand Singh <akhandsingh68@gmail.com>",
+  "license": "MIT",
+  "homepage": "https://github.com/akhandsi",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/akhandsi/api-perf-reporter"
+  },
+  "engines": {
+    "node": ">=8.9.0"
+  },
+  "keywords": [
+    "postman",
+    "newman",
+    "api",
+    "performance",
+    "influx"
+  ],
+  "preferGlobal": true,
+  "scripts": {
+    "test": "jest"
+  },
+  "bin": {
+    "api-perf": "./bin/src/index.js"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^3.0.2",
+    "@typescript-eslint/parser": "^3.0.2",
+    "ts-jest": "^26.1.0",
+    "ts-node": "^8.10.2",
+    "ts-node-dev": "^1.0.0-pre.44"
+  },
+  "dependencies": {
+    "@types/cli-color": "^2.0.0",
+    "@types/csvtojson": "^1.1.5",
+    "@types/lazy.js": "^0.5.2",
+    "@types/minimist": "^1.2.0",
+    "@types/newman": "^4.5.0",
+    "cli-color": "^2.0.0",
+    "csvtojson": "^2.0.10",
+    "eslint": "^7.1.0",
+    "eslint-plugin-import": "^2.20.2",
+    "prettier": "^2.0.4",
+    "influx": "^5.5.1",
+    "jest": "^26.0.1",
+    "lazy.js": "^0.5.1",
+    "minimist": "^1.2.5",
+    "newman": "^5.0.1",
+    "newman-reporter-csv": "^1.2.0",
+    "newman-reporter-htmlextra": "^1.15.3",
+    "newman-reporter-influxdb": "^1.0.9",
+    "yargs": "^15.3.1"
+  }
+}
