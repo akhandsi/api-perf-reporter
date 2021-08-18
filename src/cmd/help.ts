@@ -6,14 +6,13 @@ export default function (args: minimist.ParsedArgs) {
     const menus: any = {
         main: `
         api-perf [command] <options>
-    
+
         runner  ............... run api performance test for given postman collection
-        version ............... show package version
         help    ............... show help menu for a command`,
 
         runner: `
         api-perf runner <options>
-    
+
         --directory, -d   ..... directory path with a single postman collection and environment file
         --load, -l        ..... number of iterations that collection will be run for
         --report, -r      ..... generate collection run report

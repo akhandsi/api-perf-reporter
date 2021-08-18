@@ -20,18 +20,19 @@
     "influx"
   ],
   "preferGlobal": true,
+  "main": "bin/index.js",
   "scripts": {
-    "test": "jest"
+    "build": "tsc"
   },
   "bin": {
-    "api-perf": "./bin/src/index.js"
+    "api-perf": "./bin/index.js"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^3.0.2",
     "@typescript-eslint/parser": "^3.0.2",
     "ts-jest": "^26.1.0",
     "ts-node": "^8.10.2",
-    "ts-node-dev": "^1.0.0-pre.44"
+    "ts-node-dev": "^1.1.8"
   },
   "dependencies": {
     "@types/cli-color": "^2.0.0",

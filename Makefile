@@ -1,34 +1,31 @@
-.PHONY: bin build format check-node clean install
-BIN := ./node_modules/.bin
-PRETTIER ?= $(BIN)/prettier
-NODE_REQ_VERSION := $(shell cat .nvmrc)
-NODE_VERSION := $(shell node -v)
+.PHONY: install
+
+bin := ./node_modules/.bin
+prettier ?= $(bin)/prettier
+node_req_version := $(shell cat .nvmrc)
+node_version := $(shell node -v)
 
 install: clean format
 
-clean:
-	npm uninstall
-	rm -rf ./bin
+clean: nuke
+		rm -rf ./bin
 
-format: node_modules build bin
-	$(PRETTIER) --config .prettierrc --write "**/*.{js,ts}"
+format: build bin
+		$(prettier) --config .prettierrc --write "**/*.{js,ts}"
 
 node_modules: check-node
-	npm install
+		npm install -g .
 
-check-node:
-ifneq ($(NODE_VERSION), $(NODE_REQ_VERSION))
-	$(error Incorrect node version.  You have '$(NODE_VERSION)', but need '$(NODE_REQ_VERSION)'.  ===> TO SWITCH TO THE CORRECT VERSION, RUN: 'nvm use' <===)
-endif
-
-build:
-	tsc --outDir 'bin'
+build: node_modules
+		tsc --outDir 'bin'
 
 bin:
-	npm link
+		chmod +x ./bin/index.js
 
 nuke:
-	rm -rf node_modules
-	rm -Rf node
+		rm -rf node_modules
 
-
+check-node:
+ifneq ($(node_version), $(node_req_version))
+	$(error Incorrect node version.  You have '$(node_version)', but need '$(node_req_version)'.  ===> RUN: 'nvm use $(node_req_version)' <===)
+endif

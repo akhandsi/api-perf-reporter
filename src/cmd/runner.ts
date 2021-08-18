@@ -130,6 +130,8 @@ class CollectionRunner {
         // read csv file
         const report = await csvtojson().fromFile(csvFilePath);
 
+        console.log(report);
+
         // group requests based on iteration and request name
         // request name has to be in a form 'Request Name - Request Type'
         const requestGroupedByNameAndIteration = Lazy(report)
@@ -145,9 +147,9 @@ class CollectionRunner {
             .map((key: any) => {
                 const keys = key.split('::');
                 const totalResponseTime = Lazy(requestGroupedByNameAndIteration[key])
-                    .map((group: any) => parseFloat(group.responseTime) / 1000)
+                    .map((group: any) => parseFloat(group.responseTime))
                     .sum();
-                const responseTime = `${totalResponseTime} sec`;
+                const responseTime = `${totalResponseTime} ms`;
                 const totalResponseSize = Lazy(requestGroupedByNameAndIteration[key])
                     .map((group: any) => parseFloat(group.responseSize) / 1024)
                     .sum();
@@ -180,8 +182,8 @@ class CollectionRunner {
                     clc.bold('Iteration'),
                     clc.bold('Request Set'),
                     clc.bold('Number of Requests'),
-                    clc.bold('Response Time'),
-                    clc.bold('Response Size'),
+                    clc.bold('Total Response Time'),
+                    clc.bold('Total Response Size'),
                 ],
                 ...requestSummary,
             ])
