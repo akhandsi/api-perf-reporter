@@ -22,7 +22,7 @@
   "preferGlobal": true,
   "main": "bin/index.js",
   "scripts": {
-    "build": "tsc"
+    "build": "tsc --outDir 'bin'"
   },
   "bin": {
     "api-perf": "./bin/index.js"
