@@ -48,7 +48,7 @@
     "influx": "^5.5.1",
     "jest": "^26.0.1",
     "lazy.js": "^0.5.1",
-    "minimist": "^1.2.5",
+    "minimist": "^1.2.6",
     "newman": "^5.0.1",
     "newman-reporter-csv": "^1.2.0",
     "newman-reporter-htmlextra": "^1.15.3",
